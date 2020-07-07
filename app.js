@@ -8,40 +8,23 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 app.listen(3000);
  
-app.get("/", function(request, response)  {
-    
-    response.render("home");
-});
+let homeRouter = require('./routes/home');
+let contactRouter = require('./routes/contact');
+let aboutRouter = require('./routes/about');
+let blogRouter = require('./routes/blog');
+let elementsRouter = require('./routes/elements');
+let job_detailsRouter = require('./routes/job_details');
+let job_listingRouter = require('./routes/job_listing');
+let mainRouter = require('./routes/main');
+let single_blogRouter = require('./routes/single-blog');
 
-app.get("/contact", function(request, response)  {
-    
-    response.render("contact");
-});
 
-app.get("/about",function(request,response){
-    response.render("about")
-});
-
-app.get("/blog",function(request,response){
-    response.render("blog")
-});
-
-app.get("/elements",function(request,response){
-    response.render("elements")
-});
-
-app.get("/job_details",function(request,response){
-    response.render("job_details")
-});
-
-app.get("/job_listing",function(request,response){
-    response.render("job_listing")
-});
-
-app.get("/main",function(request,response){
-    response.render("main")
-});
-
-app.get("/single-blog",function(request,response){
-    response.render("single-blog")
-});
+app.use('/',homeRouter);
+app.use('/contact',contactRouter);
+app.use('/about',aboutRouter);
+app.use('/blog',blogRouter);
+app.use('/elements',elementsRouter);
+app.use('/job_details',job_detailsRouter);
+app.use('/job_listing',job_listingRouter);
+app.use('/main',mainRouter);
+app.use('/single-blog',single_blogRouter);
