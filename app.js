@@ -18,6 +18,7 @@ let job_listingRouter = require('./routes/job_listing');
 let mainRouter = require('./routes/main');
 let single_blogRouter = require('./routes/single-blog');
 let loginRouter = require('./routes/login');
+let registerRouter = require('./routes/register');
 
 
 
@@ -31,3 +32,4 @@ app.use('/job_listing',job_listingRouter);
 app.use('/main',mainRouter);
 app.use('/single-blog',single_blogRouter);
 app.use('/login',loginRouter);
+app.use('/register',registerRouter);
