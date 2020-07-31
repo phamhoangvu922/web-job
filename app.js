@@ -33,3 +33,26 @@ app.use('/main',mainRouter);
 app.use('/single-blog',single_blogRouter);
 app.use('/login',loginRouter);
 app.use('/register',registerRouter);
+
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'webjob_data'
+});
+
+con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!!!")
+});
+con.connect(function(err) {
+  //  if (err) throw err;
+    var sql = "SELECT * FROM congviec";
+    con.query(sql, function(err, results) {
+      if (err) {console.error("error connecting: " + err.stack); return;}
+      console.log(results);
+    })
+  });
