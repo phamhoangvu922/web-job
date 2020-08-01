@@ -19,7 +19,7 @@ let mainRouter = require('./routes/main');
 let single_blogRouter = require('./routes/single-blog');
 let loginRouter = require('./routes/login');
 let registerRouter = require('./routes/register');
-
+let chatRouter = require('./routes/chat');
 
 
 app.use('/',homeRouter);
@@ -33,26 +33,27 @@ app.use('/main',mainRouter);
 app.use('/single-blog',single_blogRouter);
 app.use('/login',loginRouter);
 app.use('/register',registerRouter);
+app.use('/chat',chatRouter);
 
 
-var mysql = require('mysql');
+// var mysql = require('mysql');
 
-var con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'webjob_data'
-});
+// var con = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '',
+//     database: 'webjob_data'
+// });
 
-con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!!!")
-});
-con.connect(function(err) {
-  //  if (err) throw err;
-    var sql = "SELECT * FROM congviec";
-    con.query(sql, function(err, results) {
-      if (err) {console.error("error connecting: " + err.stack); return;}
-      console.log(results);
-    })
-  });
+// con.connect(function(err) {
+//     if (err) throw err;
+//     console.log("Connected!!!")
+// });
+// con.connect(function(err) {
+//   //  if (err) throw err;
+//     var sql = "SELECT * FROM congviec";
+//     con.query(sql, function(err, results) {
+//       if (err) {console.error("error connecting: " + err.stack); return;}
+//       console.log(results);
+//     })
+//   });

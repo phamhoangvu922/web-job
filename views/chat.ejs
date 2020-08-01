@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Chat</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="site.webmanifest">
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+        <link rel="stylesheet" href="css/chat.css">
+    </head>
+    <body>
+        <section class = "container">
+            <h2>Chat Window</h2>
+            <button class = "open-button" onclick = "openForm()">Chat</button>
+            <div class="chat-popup" id = "my-form">
+                <form action = "" class = "form-container">
+                    <label for = "msg"><b>Message</b></label>
+                    <div class="chat-box">
+                        <div class = "you-chat">
+                            <div class = "user-photo"></div>
+                            <p class = "chat-message">Hey Hey pro Hey proHey
+                            proHey proHey proHey proHey proHey proHey proHey proHey pro</p>
+                        </div>
+
+                        <div class = "friend-chat">
+                            <p class = "chat-message">Hey pro </p>
+                            <div class = "user-photo"></div>
+                        </div>
+                    </div>
+                    <textarea placeholder="Type message here ..." name = "msg" required></textarea>
+                    <button type = "submit" class = "btn">Send</button>
+                    <button type = "button" class = "btn-cancel" onclick = "closeForm()">Close</button>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
+
+<script>
+    function openForm(){
+        document.getElementById('my-form').style.display = "block";
+    }
+
+    function closeForm(){
+        document.getElementById('my-form').style.display = "none";
+    }
+</script>

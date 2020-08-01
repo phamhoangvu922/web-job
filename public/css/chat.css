@@ -1,0 +1,134 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+h2 {
+    position: absolute;
+    left:50%;
+    top:25%;
+    transform: translate(-50%);
+    font-size: 50px;
+}
+
+.open-button {
+    background-color: rgba(255, 255,255, 0.8);
+    color:rgba(0, 0, 0, 0.7);
+    padding: 16px 20px;
+    border:none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+}
+
+.chat-popup{
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index:9;
+}
+
+.form-container{
+    max-width: 500px;
+    padding:10px;
+    background-color: white;
+}
+
+.form-container textarea{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border:none;
+    background: #f1f1f1;
+    height: 75px;
+}
+
+.form-container .btn{
+    background-color: #659dbd;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.form-container .btn-cancel{
+    background-color: #b1b6b9;
+    color: rgba(0, 0, 0, 0.8);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 50px;
+}
+
+.chat-box{
+    margin: 5px 0 22px 0;
+    padding: 16px 20px;
+    border: none;
+    min-height: 500px;
+    width: 100%;
+    background-color: #fb246a;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.you-chat{
+    display: flex;
+    flex-flow: row  wrap;
+    align-items: flex-center;
+    margin-bottom: 5px;
+    margin-top:5px
+}
+
+.you-chat .user-photo{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: aqua;
+    margin: 5px 10px 0 0;
+}
+
+.you-chat .chat-message{
+    background-color: blueviolet;
+    width: 75%;
+    border-radius: 5%;
+    padding:10px;
+    margin: 5px 0 5px 0;
+}
+
+.friend-chat{
+    display: flex;
+    flex-flow: row  wrap;
+    align-items: flex-center;
+    margin-bottom: 5px;
+    margin-top:5px
+}
+
+.friend-chat .user-photo{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: rgb(143, 190, 190);
+    margin: 5px 0 0 10px;
+}
+
+.friend-chat .chat-message{
+    background-color: rgb(236, 232, 240);
+    width: 83%;
+    border-radius: 5%;
+    padding:10px;
+    margin: 5px 0 5px 0;
+}
