@@ -1,49 +1,266 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Chat</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-        <link rel="stylesheet" href="css/chat.css">
-    </head>
-    <body>
-        <section class = "container">
-            <h2>Chat Window</h2>
-            <button class = "open-button" onclick = "openForm()">Chat</button>
-            <div class="chat-popup" id = "my-form">
-                <form action = "" class = "form-container">
-                    <label for = "msg"><b>Message</b></label>
-                    <div class="chat-box">
-                        <div class = "you-chat">
-                            <div class = "user-photo"></div>
-                            <p class = "chat-message">Hey Hey pro Hey proHey
-                            proHey proHey proHey proHey proHey proHey proHey proHey pro</p>
-                        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="search-container">
+            <input type = "text" placeholder="Search" />
+        </div>
 
-                        <div class = "friend-chat">
-                            <p class = "chat-message">Hey pro </p>
-                            <div class = "user-photo"></div>
-                        </div>
-                    </div>
-                    <textarea placeholder="Type message here ..." name = "msg" required></textarea>
-                    <button type = "submit" class = "btn">Send</button>
-                    <button type = "button" class = "btn-cancel" onclick = "closeForm()">Close</button>
-                </form>
+        <div id="conversation-list">
+            <div class="conversation active">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
             </div>
-        </section>
-    </body>
+
+            <div class="conversation">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
+            </div>
+
+            <div class="conversation">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
+            </div>
+            <div class="conversation">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
+            </div>
+            <div class="conversation">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
+            </div>
+            <div class="conversation">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
+            </div>
+
+            <div class="conversation">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
+            </div>
+            <div class="conversation">
+                <img src="img/chat/PHV.jpeg"" alt="Phạm Hoàng Vũ" />
+                <div class="title-text">
+                    Phạm Hoàng Vũ
+                </div>
+                <div class="created-date">
+                    Apr 16
+                </div>
+                <div class = "conversation-message">
+                    This i a message
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div id="new-message-container">
+            <a href="#">+</a>
+        </div>
+
+        <div id="chat-title">
+            <span>Phạm Hoàng Vũ</span>
+            <a href="#">x</a>
+        </div>
+
+        <div id="chat-message-list">
+            <div class="message-row you-message">
+                <div class="message-content">
+                    <div class="message-text">
+                        Ok then
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="message-row other-message">
+                <div class="message-content">
+                    <img src="img/chat/PHV.jpeg" alt = "Pham Hoang Vu" />
+                    <div class="message-text">
+                        I'm Fine
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-row you-message">
+                <div class="message-content">
+                    <div class="message-text">
+                        Ok then
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="message-row other-message">
+                <div class="message-content">
+                    <img src="img/chat/PHV.jpeg" alt = "Pham Hoang Vu" />
+                    <div class="message-text">
+                        I'm Fine
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-row you-message">
+                <div class="message-content">
+                    <div class="message-text">
+                        Ok then
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="message-row other-message">
+                <div class="message-content">
+                    <img src="img/chat/PHV.jpeg" alt = "Pham Hoang Vu" />
+                    <div class="message-text">
+                        I'm Fine
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+
+            <div class="message-row you-message">
+                <div class="message-content">
+                    <div class="message-text">
+                        Ok then
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="message-row other-message">
+                <div class="message-content">
+                    <img src="img/chat/PHV.jpeg" alt = "Pham Hoang Vu" />
+                    <div class="message-text">
+                        <p>Văn bản là một loại hình phương tiện để ghi nhận, 
+                        lưu giữ và truyền đạt các thông tin từ 
+                        chủ thể này sang chủ thể khác bằng ký hiệu gọi là chữ viết. 
+                        Nó gồm tập hợp các câu có tính trọn vẹn về nội dung, hoàn chỉnh về hình thức, 
+                        có tính liên kết chặt chẽ và hướng tới một mục tiêu giao tiếp nhất định. Wikipedia
+                        </p>
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+            <div class="message-row you-message">
+                <div class="message-content">
+                    <div class="message-text">
+                        Ok then
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="message-row other-message">
+                <div class="message-content">
+                    <img src="img/chat/PHV.jpeg" alt = "Pham Hoang Vu" />
+                    <div class="message-text">
+                        <p>Văn bản là một loại hình phương tiện để ghi nhận, 
+                            lưu giữ và truyền đạt các thông tin từ 
+                            chủ thể này sang chủ thể khác bằng ký hiệu gọi là chữ viết. 
+                            Nó gồm tập hợp các câu có tính trọn vẹn về nội dung, hoàn chỉnh về hình thức, 
+                            có tính liên kết chặt chẽ và hướng tới một mục tiêu giao tiếp nhất định. Wikipedia
+                        </p>
+                    </div>
+                    <div class="message-time">
+                        Apr 16
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div id="chat-form">
+            <img src="img/icon/attachment.png" alt="Add Attachment" />
+            <input type = "text" placeholder = "type a message" />
+        </div>
+    </div>
+</body>
 </html>
-
-<script>
-    function openForm(){
-        document.getElementById('my-form').style.display = "block";
-    }
-
-    function closeForm(){
-        document.getElementById('my-form').style.display = "none";
-    }
-</script>
