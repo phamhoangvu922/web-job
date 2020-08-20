@@ -1,10 +1,10 @@
 var pg = require('pg')
 var config = {
     user:'postgres',
-    database: 'webjob_data',
-    password: 'hovupham0311',
+    database: 'data',
+    password: '123456',
     host: 'localhost',
-    port: 8888,
+    port: 5432,
     max: 10,
     idleTimeoutMillis: 30000,
 }
