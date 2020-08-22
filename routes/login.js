@@ -1,13 +1,8 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var loginController = require('../controllers/login');
+var express = require('express');
 var router = express.Router();
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-console.log("AAAAAAAAAAAAA")
-router.get('/',loginController.logIn)
-console.log("BBBBBBB")
-router.post('/',urlencodedParser,loginController.getLogIn)
-console.log("CCCCCCCCCCCCC")
-// router.post('/',loginController.getLogIn)
+router.get("/", function(req, res)  {
+    
+    res.render("login");
+});
 module.exports = router;

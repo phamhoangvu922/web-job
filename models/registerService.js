@@ -10,7 +10,6 @@ module.exports.getRegisterComplete = function(req,res,next){
             }
             if(result.rows[0] !== undefined)
             {
-                console.log(result);
                 let announce;
                 if(result.rows[0].email === req.body.email)
                 {
