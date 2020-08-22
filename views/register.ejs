@@ -1,15 +1,18 @@
+<html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Form</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="/css/normalize.css">
     <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/main2.css">
+    <link rel="stylesheet" href="/css/main2.css">
     <!-- CSS here -->
     <%- include ('./elements/css') %>
 </head>
 
 <body>
+
     <!-- Preloader Start -->
     <%- include ('./elements/preloader') %>
     <!-- Preloader Start -->
@@ -18,35 +21,37 @@
         <%- include ('./elements/header') %>
         <!-- Header End -->
     </header>
-    <form action="index.html" method="post">
+    <main>
+        <form name="register-form" method="post">
 
-        <h1>Sign Up</h1>
+            <h1>Sign Up</h1>
 
-        <fieldset>
-            <legend><span class="number">1</span>Your basic info</legend>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="user_name">
+            <fieldset>
+                <legend><span class="number">1</span>Your basic info</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
 
-            <label for="mail">Email:</label>
-            <input type="email" id="mail" name="user_email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="user_password">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+                <p class="announce" id="password-announce"></p>
 
-            <label>Age:</label>
-            <input type="radio" id="under_13" value="under_13" name="user_age"><label for="under_13" class="light">Under
-                13</label><br>
-            <input type="radio" id="over_13" value="over_13" name="user_age"><label for="over_13" class="light">13 or
-                older</label>
-        </fieldset>
+            </fieldset>
 
-        <fieldset>
-            <legend><span class="number">2</span>Your profile</legend>
-            <label for="bio">Biography:</label>
-            <textarea id="bio" name="user_bio"></textarea>
-        </fieldset>
-        <button type="submit">Sign Up</button>
-    </form>
+            <fieldset>
+                <legend><span class="number">2</span>Your profile</legend>
+                <label for="bio">Biography:</label>
+                <textarea id="bio" name="user_bio"></textarea>
+            </fieldset>
+            <br>
+            <button type="submit" id="submit-signup">Sign Up</button>
+
+        </form>
+    </main>
+
+
     <footer>
         <!-- Footer Start-->
         <%- include ('./elements/footer') %>
@@ -55,7 +60,15 @@
 
     <!-- JS here -->
     <%- include ('./elements/js') %>
-
 </body>
-
+<script>
+    function checkPassword(e) {
+        const passwordValue = document.forms['register-form'].password.value;
+        if (passwordValue.length < 6) {
+            e.preventDefault()
+            document.getElementById('password-announce').innerHTML = 'Password phải có ít nhất 6 ký tự';
+        }
+    }
+    document.getElementById('submit-signup').onclick = checkPassword;
+</script>
 </html>

@@ -24,12 +24,8 @@ h1 {
 
 input[type="text"],
 input[type="password"],
-input[type="date"],
-input[type="datetime"],
 input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="tel"],
+input[type="submit"],
 input[type="time"],
 input[type="url"],
 textarea,
@@ -46,11 +42,6 @@ select {
   color: #8a97a0;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
-}
-
-input[type="radio"],
-input[type="checkbox"] {
-  margin: 0 4px 8px 0;
 }
 
 select {

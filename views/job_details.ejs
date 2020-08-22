@@ -25,13 +25,14 @@
     <main>
 
         <!-- Hero Area Start-->
+        <% jobs.rows.forEach(function(item) { %>
         <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="img/hero/about.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="hero-cap text-center">
-                            <h2>UI/UX Designer</h2>
+                            <h2><%= item.tencongviec %></h2>
                         </div>
                     </div>
                 </div>
@@ -40,7 +41,6 @@
         </div>
         <!-- Hero Area End -->
         <!-- job post company Start -->
-        <% jobdes.rows.forEach(function(item) { %>
         <div class="job-post-company pt-120 pb-120">
             <div class="container">
                 <div class="row justify-content-between">
@@ -50,7 +50,7 @@
                         <div class="single-job-items mb-50">
                             <div class="job-items">
                                 <div class="company-img company-img-details">
-                                    <a href="#"><img src="img/icon/<%= item.idcongviec %>.png" alt=""></a>
+                                    <a href="#"><img src="/img/icon/<%= item.idcongviec %>.png" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
                                     <a href="#">
@@ -59,7 +59,6 @@
                                     <ul>
                                         <li><%= item.macongty %></li>
                                         <li><i class="fas fa-map-marker-alt"></i><%= item.diadiem %></li>
-                                        <li><%= item.luong %></li>
                                     </ul>
                                 </div>
                             </div>
@@ -103,17 +102,19 @@
                          </div>
                        </div>
                         <div class="post-details4  mb-50">
+                            <% congty.rows.forEach(function(item1) { %>
                             <!-- Small Section Tittle -->
                            <div class="small-section-tittle">
                                <h4>Company Information</h4>
                            </div>
-                              <span>Colorlib</span>
-                              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                              <span><%= item1.tencongty %></span>
+                              <p><%= item1.mota %></p>
                             <ul>
-                                <li>Name: <span>Colorlib </span></li>
-                                <li>Web : <span> colorlib.com</span></li>
-                                <li>Email: <span>carrier.colorlib@gmail.com</span></li>
+                                <li>Web : <span> <%= item1.web %></span></li>
+                                <li>Email: <span><%= item1.email %></span></li>
                             </ul>
+                            <% }) %>
+
                        </div>
                     </div>
                 </div>
