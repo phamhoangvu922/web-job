@@ -53,8 +53,9 @@
 				<div id="username_inputleft"></div>
 
 				<div id="username_inputmiddle">
-				<form>
-					<input type="text" name="link" id="url" value="E-mail Address" onclick="this.value = ''">
+				<form id = 'form-email' method="POST">
+					<!-- <input type="text" name="link" id="url" value="E-mail Address" onclick="this.value = ''"> -->
+					<input type="email" name="email" id="email" class="url" value="E-mail Address" onclick="this.value = ''">
 					<img id="url_user" src="img/login/mailicon.png" alt="">
 				</form>
 				</div>
@@ -68,8 +69,9 @@
 				<div id="password_inputleft"></div>
 
 				<div id="password_inputmiddle">
-				<form>
-					<input type="password" name="link" id="url" value="Password" onclick="this.value = ''">
+				<form id = 'form-password' method="POST"> 
+					<!-- <input type="password" name="link" id="url" value="Password" onclick="this.value = ''"> -->
+					<input type="password" name="password" id="password" class="url"  value="Password" onclick="this.value = ''">
 					<img id="url_password" src="img/login/passicon.png" alt="">
 				</form>
 				</div>

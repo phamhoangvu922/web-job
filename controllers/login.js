@@ -1,9 +1,9 @@
-var login = require('../models/loginService')
+const loginService = require('../models/loginService');
 
 module.exports.logIn = (req,res,next)=>{
+    console.log("LOGIN")
     res.render('login');
 }
-
 // module.exports.getLogIn =  function(req,res,next){
 //     login.getLogIn(req,res,next);
 
@@ -14,16 +14,17 @@ module.exports.getLogIn =  async (req,res,next) =>{
     console.log("GET LOG IN");
     const email = req.body.email;
     const password = req.body.password;
-    console.log(email);
+    const result = await loginService.getUser(email,password);
+    console.log("Email: ",email);
     console.log(password);
-    const result = await login.getUser(email,password);
-    console.log(result);
-    if(result === 0){
+    if(result[0] == 0){
+        console.log("Đăng nhập thất bại");
         res.render('login', {announce: "Tài khoản hoặc mật khẩu không đúng"});
     }
     else{
-        res.render('/' , {account: result[1]});
+        console.log("Đăng nhập thành công");
+        res.render('login-complete', {account: result[1] , isLogin: true});
     }
-
 }
 console.log("EEEEEEEEEE");
+
