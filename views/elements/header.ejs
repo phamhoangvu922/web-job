@@ -29,8 +29,17 @@
                          </div>          
                          <!-- Header-btn -->
                          <div class="header-btn d-none f-right d-lg-block">
+                            <%if (isLogin) { %>
+                            <button type="button" id="dropdownMenuButton" data-toggle="dropdown" ><%= username %>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/info">Thông tin tài khoản</a>
+                                <a class="dropdown-item" href="/logout">Đăng xuất</a>
+                            </div>
+                            <% } else{ %> 
                              <a href="/register" class="btn head-btn1">Register</a>
                              <a href="/login" class="btn head-btn2">Login</a>
+                            <% } %>
                          </div>
                      </div>
                  </div>

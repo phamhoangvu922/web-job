@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 
 module.exports.getRegisterComplete = function(req,res,next){
+    let announce = '';
     pool.connect(function(err, client, done){  
         client.query('SELECT * FROM "users"  WHERE "email"='+ '\'' + req.body.email + '\'' , function (err, result) {
             if(err){
@@ -10,7 +11,6 @@ module.exports.getRegisterComplete = function(req,res,next){
             }
             if(result.rows[0] !== undefined)
             {
-                let announce;
                 if(result.rows[0].email === req.body.email)
                 {
                     announce = "Email đã tồn tại";

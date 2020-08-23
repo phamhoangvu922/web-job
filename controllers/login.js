@@ -1,30 +1,29 @@
-const loginService = require('../models/loginService');
+const logInService = require('../models/loginService');
+const passport = require('../passport');
 
-module.exports.logIn = (req,res,next)=>{
-    console.log("LOGIN")
-    res.render('login');
+
+module.exports.logIn = (req, res, next) => {
+    let announce = '';
+    res.render('login', {announce, username: req.user, isLogin: req.isAuthenticated()});
 }
-// module.exports.getLogIn =  function(req,res,next){
-//     login.getLogIn(req,res,next);
 
-// }
-
-console.log("DDDDDDDD");
-module.exports.getLogIn =  async (req,res,next) =>{
-    console.log("GET LOG IN");
-    const email = req.body.email;
-    const password = req.body.password;
-    const result = await loginService.getUser(email,password);
-    console.log("Email: ",email);
-    console.log(password);
-    if(result[0] == 0){
-        console.log("Đăng nhập thất bại");
-        res.render('login', {announce: "Tài khoản hoặc mật khẩu không đúng"});
-    }
-    else{
-        console.log("Đăng nhập thành công");
-        res.render('login-complete', {account: result[1] , isLogin: true});
-    }
+module.exports.submitLogIn = async (req, res, next) => {
+    console.log("toi day");
+    passport.authenticate('user-local', function (err, user, info) {
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            let announce = 'Tài khoản hoặc mật khẩu không chính xác';
+            return res.render("login", {announce});
+        }
+        req.logIn(user, function (err) {
+            if (err) {
+                return next(err);
+            }
+            else {
+                res.redirect('/');
+            }
+        });
+    })(req, res, next);
 }
-console.log("EEEEEEEEEE");
-

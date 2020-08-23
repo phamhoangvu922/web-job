@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.static("public"));
-// app.use(session({ secret: "cats" }));
+app.use(session({ secret: "cats" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -42,6 +42,8 @@ let mainRouter = require('./routes/main');
 let single_blogRouter = require('./routes/single-blog');
 let loginRouter = require('./routes/login');
 let registerRouter = require('./routes/register');
+var logOutRouter =require('./routes/logout')
+
 
 
 
@@ -56,12 +58,15 @@ app.use('/main', mainRouter);
 app.use('/single-blog', single_blogRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
+app.use('/logout',logOutRouter);
 
 
 app.set('port', process.env.port || port);
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
+
+
 
 
 module.exports = app;

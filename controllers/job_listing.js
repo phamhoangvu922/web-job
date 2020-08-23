@@ -7,7 +7,7 @@ module.exports.getFind = async (req,res,next)=>{
     const numbersOfJobsPerPage = 6;
   
     const result = await list.getFind(category,type,location,page,numbersOfJobsPerPage);
-    res.render('job_listing',{jobs: result[0], numbersOfPages: result[1]});
+    res.render('job_listing',{jobs: result[0], numbersOfPages: result[1], username: req.user, isLogin: req.isAuthenticated()});
   
   }
 
@@ -17,6 +17,6 @@ module.exports.getFind = async (req,res,next)=>{
     const numbersOfJobsPerPage = 6;
   
     const result = await list.getJob_listing(search,page,numbersOfJobsPerPage);
-    res.render('job_listing',{jobs: result[0], numbersOfPages: result[1] });
+    res.render('job_listing',{jobs: result[0], numbersOfPages: result[1], username: req.user, isLogin: req.isAuthenticated() });
 }
 //req.query.page

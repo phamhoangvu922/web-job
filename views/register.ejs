@@ -25,6 +25,9 @@
         <form name="register-form" method="post">
 
             <h1>Sign Up</h1>
+            <% if (announce) { %>
+                <p class ="announce" id= "announce" ><%= announce %></p>				
+            <% } %>
 
             <fieldset>
                 <legend><span class="number">1</span>Your basic info</legend>

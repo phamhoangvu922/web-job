@@ -1,7 +1,8 @@
 var register = require('../models/registerService')
 
 module.exports.register = function(req,res,next){
-    res.render('register');
+    let announce ='';
+    res.render('register', {announce, username: req.user, isLogin: req.isAuthenticated()});
 }
 
 module.exports.registerComplete = function(req,res,next)
