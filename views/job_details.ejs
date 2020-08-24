@@ -1,19 +1,20 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Job board HTML-5 Template </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-		<!-- CSS here -->
-        <%- include ('./elements/css') %>
-   </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Job board HTML-5 Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-   <body>
+    <!-- CSS here -->
+    <%- include ('./elements/css') %>
+</head>
+
+<body>
     <!-- Preloader Start -->
     <%- include ('./elements/preloader') %>
     <!-- Preloader Start -->
@@ -27,17 +28,18 @@
         <!-- Hero Area Start-->
         <% jobs.rows.forEach(function(item) { %>
         <div class="slider-area ">
-        <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="img/hero/about.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2><%= item.tencongviec %></h2>
+            <div class="single-slider section-overly slider-height2 d-flex align-items-center"
+                data-background="img/hero/about.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hero-cap text-center">
+                                <h2><%= item.tencongviec %></h2>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <!-- Hero Area End -->
         <!-- job post company Start -->
@@ -63,8 +65,8 @@
                                 </div>
                             </div>
                         </div>
-                          <!-- job single End -->
-                       
+                        <!-- job single End -->
+
                         <div class="job-post-details">
                             <div class="post-details1 mb-50">
                                 <!-- Small Section Tittle -->
@@ -74,13 +76,13 @@
                                 <p><%= item.chitiet %></p>
                             </div>
                             <div class="post-details2  mb-50">
-                                 <!-- Small Section Tittle -->
+                                <!-- Small Section Tittle -->
                                 <div class="small-section-tittle">
                                     <h4>Required Knowledge, Skills, and Abilities</h4>
                                 </div>
-                               <ul>
-                                   <li><%= item.yeucau %></li>
-                               </ul>
+                                <ul>
+                                    <li><%= item.yeucau %></li>
+                                </ul>
                             </div>
                         </div>
 
@@ -89,33 +91,33 @@
                     <div class="col-xl-4 col-lg-4">
                         <div class="post-details3  mb-50">
                             <!-- Small Section Tittle -->
-                           <div class="small-section-tittle">
-                               <h4>Job Overview</h4>
-                           </div>
-                          <ul>
-                              <li>Posted date : <span><%= item.ngaydang %></span></li>
-                              <li>Job nature : <span><%= item.dacdiem %></span></li>
-                              <li>Salary :  <span><%= item.luong %></span></li>
-                          </ul>
-                         <div class="apply-btn2">
-                            <a href="#" class="btn">Apply Now</a>
-                         </div>
-                       </div>
+                            <div class="small-section-tittle">
+                                <h4>Job Overview</h4>
+                            </div>
+                            <ul>
+                                <li>Posted date : <span><%= item.ngaydang %></span></li>
+                                <li>Job nature : <span><%= item.dacdiem %></span></li>
+                                <li>Salary : <span><%= item.luong %></span></li>
+                            </ul>
+                            <div class="apply-btn2">
+                                <a href="#" class="btn">Apply Now</a>
+                            </div>
+                        </div>
                         <div class="post-details4  mb-50">
                             <% congty.rows.forEach(function(item1) { %>
                             <!-- Small Section Tittle -->
-                           <div class="small-section-tittle">
-                               <h4>Company Information</h4>
-                           </div>
-                              <span><%= item1.tencongty %></span>
-                              <p><%= item1.mota %></p>
+                            <div class="small-section-tittle">
+                                <h4>Company Information</h4>
+                            </div>
+                            <span><%= item1.tencongty %></span>
+                            <p><%= item1.mota %></p>
                             <ul>
                                 <li>Web : <span> <%= item1.web %></span></li>
                                 <li>Email: <span><%= item1.email %></span></li>
                             </ul>
                             <% }) %>
 
-                       </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,19 +132,23 @@
         <!-- Footer End-->
     </footer>
 
-	<!-- JS here -->
+    <!-- JS here -->
     <%- include ('./elements/js') %>
     <% congty.rows.forEach(function(item1) { %>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-    <div style="position:fixed; z-index:9999999; right:10px; bottom:10px;" class="fb-page" data-tabs="messages" data-href = '<%= item1.facebook%>' data-width="300" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <div style="position:fixed; z-index:9999999; right:10px; bottom:10px;" class="fb-page" data-tabs="messages"
+        data-href='<%= item1.facebook%>' data-width="300" data-height="400" data-small-header="false"
+        data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+    </div>
     <% }) %>
-    </body>
+
+</body>
+
 </html>
