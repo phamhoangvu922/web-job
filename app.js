@@ -39,13 +39,12 @@ let elementsRouter = require('./routes/elements');
 //let job_detailsRouter = require('./routes/job_details');
 let job_listingRouter = require('./routes/job_listing');
 let mainRouter = require('./routes/main');
-let single_blogRouter = require('./routes/single-blog');
+let single_blogRouter = require('./routes/single_blog');
 let loginRouter = require('./routes/login');
 let registerRouter = require('./routes/register');
-var logOutRouter =require('./routes/logout')
-
-
-
+var logOutRouter =require('./routes/logout');
+let chatRouter = require('./routes/chat');
+let infoRouter = require('./routes/info');
 
 app.use('/', homeRouter);
 app.use('/contact', contactRouter);
@@ -55,10 +54,12 @@ app.use('/elements', elementsRouter);
 //app.use('/job_details', job_detailsRouter);
 app.use('/job_listing', job_listingRouter);
 app.use('/main', mainRouter);
-app.use('/single-blog', single_blogRouter);
+app.use('/single_blog', single_blogRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/logout',logOutRouter);
+app.use('/chat',chatRouter);
+app.use('/info',infoRouter);
 
 
 app.set('port', process.env.port || port);
