@@ -81,8 +81,6 @@
                                         <option value="All">All category</option>
                                         <option value="Sale/Digital">Sale/Digital</option>
                                         <option value="IT">IT</option>
-                                        <option value="3">Category 3</option>
-                                        <option value="4">Category 4</option>
                                     </select>
                                 </div>
                             </div>
@@ -124,7 +122,9 @@
                                 <br>
                             </div>
                             <div class="btn-select">
-                                <a href="#" id="find-filter"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large" id="find-filter-btn">Tìm kiếm</button></a>
+                                <a href="#" id="find-filter"><button
+                                        class="w3-btn w3-white w3-border w3-border-red w3-round-large"
+                                        id="find-filter-btn">Tìm kiếm</button></a>
                             </div>
 
                         </div>
@@ -132,30 +132,47 @@
                     </div>
                     <!-- Right content -->
                     <div class="col-xl-9 col-lg-9 col-md-8">
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <!-- form -->
+                                <form action="#" class="search-box">
+                                    <div class="input-form">
+                                        <input type="text" placeholder="Job Tittle or keyword" id="search"
+                                            name="search">
+                                    </div>
+                                    <div class="search-form">
+                                        <a href="#" id="find">Find job</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                         <!-- Featured_job_start -->
                         <section class="featured-job-area">
                             <div class="container">
                                 <!-- single-job-content -->
                                 <% jobs.rows.forEach(function(job) { %>
-                                    <div class="single-job-items mb-30">
-                                        <div class="job-items">
-                                            <div class="company-img">
-                                                <a href="job_details/id=<%= job.idcongviec %>"><img src="/img/icon/<%= job.idcongviec %>.png" alt=""></a>
-                                            </div>
-                                            <div class="job-tittle">
-                                                <a href="job_details/id=<%= job.idcongviec %>"><h4><%= job.tencongviec %></h4></a>
-                                                <ul>
-                                                    <li><%= job.macongty %></li>
-                                                    <li><i class="fas fa-map-marker-alt"></i><%= job.diadiem %></li>
-                                                </ul>
-                                            </div>
+                                <div class="single-job-items mb-30">
+                                    <div class="job-items">
+                                        <div class="company-img">
+                                            <a href="job_details/id=<%= job.idcongviec %>"><img
+                                                    src="/img/icon/<%= job.idcongviec %>.png" alt=""></a>
                                         </div>
-                                        <div class="items-link f-right">
-                                            <a href="job_details/id=<%= job.idcongviec %>"><%= job.dacdiem %></a>
-                                            <span><%= job.ngaydang %></span>
+                                        <div class="job-tittle">
+                                            <a href="job_details/id=<%= job.idcongviec %>">
+                                                <h4><%= job.tencongviec %></h4>
+                                            </a>
+                                            <ul>
+                                                <li><%= job.macongty %></li>
+                                                <li><i class="fas fa-map-marker-alt"></i><%= job.diadiem %></li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <% }) %>
+                                    <div class="items-link f-right">
+                                        <a href="job_details/id=<%= job.idcongviec %>"><%= job.dacdiem %></a>
+                                        <span><%= job.ngaydang %></span>
+                                    </div>
+                                </div>
+                                <% }) %>
                                 <!-- single-job-content -->
                             </div>
                         </section>
@@ -172,13 +189,10 @@
                     <div class="col-xl-12">
                         <div class="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-start">
-                                    <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                    <li class="page-item"><a class="page-link" href="#"><span
-                                                class="ti-angle-right"></span></a></li>
-                                </ul>
+                                <nav aria-label="Page navigation example" class="display-pages">
+                                    <ul class="pagination" id="pages">
+                                    </ul>
+                                </nav>
                             </nav>
                         </div>
                     </div>
@@ -200,6 +214,39 @@
 
 </body>
 <script>
+
+    (function () {
+        const pages = "<%= numbersOfPages %>";
+        let href = window.location.pathname + "?page=";
+        let find = "";
+        let search = "";
+        let indexOfSearch = -1;
+        indexOfSearch = window.location.href.indexOf("&search");
+        if (window.location.href.includes('find')) {
+            const substr = window.location.href.indexOf('&');
+            if (indexOfSearch !== -1) {
+                find = window.location.href.substring(substr, indexOfSearch);
+            }
+        }
+
+        if (indexOfSearch !== -1) {
+            search = window.location.href.substring(indexOfSearch);
+        }
+        for (let i = 1; i <= pages; i++) {
+            const ul = document.getElementById('pages');
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.appendChild(document.createTextNode(i));
+            a.setAttribute("class", "page-link");
+            a.setAttribute("href", href + i.toString() + find + search);
+            li.appendChild(a);
+            li.setAttribute("class", "page-item");
+            ul.appendChild(li);
+        }
+    })();
+
+
+
     function getType() {
         var value = document.getElementById('type').options[document.getElementById('type').selectedIndex].value;
         if (value === 'All') {
@@ -261,6 +308,43 @@
         document.getElementById('find-filter').href = '/job_listing/find?page=1&category=' + category + '&type=' + type + '&location=' + location;
     }
     document.getElementById('find-filter-btn').onclick = findFilter;
+
+    function search() {
+        let searchValue = document.getElementById('search').value;
+        console.log(searchValue);
+        for (let i = 0; i < searchValue.length; i++) {
+            if (searchValue[i] === ' ') {
+                searchValue = searchValue.replace(searchValue[i], '+');
+            }
+        }
+        searchValue = "&search=" + searchValue;
+        let href = window.location.href;
+        const firstIndex = href.indexOf("page");
+        let lastIndex;
+        let i = firstIndex;
+        for (i; ; i++) {
+            if (href[i] === '&') {
+                break;
+            }
+            if (href[i] === undefined) {
+                break;
+            }
+            lastIndex = i;
+        }
+        lastIndex++;
+        const str = href.substring(firstIndex, lastIndex);
+
+        href = href.replace(str, "page=1");
+
+        if (href.includes("&search")) {
+            const indexOfSearch = href.indexOf("&search");
+            const searchString = href.substring(indexOfSearch);
+            href = href.replace(searchString, "");
+        }
+        href += searchValue;
+        document.getElementById('find').href = href;
+    }
+    document.getElementById('find').onclick = search;
 
 
 </script>

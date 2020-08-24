@@ -6,16 +6,19 @@ module.exports.getJob_listing =async (search,page,numbersOfJobsPerPage) => {
             let where = "";
             if(search !== undefined)
             {
-                where = "WHERE tencongviec LIKE " + '\'%' + search + '%\'';
+                where = "WHERE \"tencongviec\" LIKE " + '\'%' + search + '%\'';
             }
-
-            const result = await client.query("SELECT * FROM congviec " + where);
+            const result = await client.query("SELECT * FROM \"congviec\" " + where);
             const numbersOfJobs = result.rows.length;
             const numbersOfPages = parseInt(numbersOfJobs/numbersOfJobsPerPage)+(numbersOfJobs%numbersOfJobsPerPage === 0 ? 0 : 1);
-            console.log(result);
+            let queryString;
+
+            queryString= 'SELECT * FROM \"congviec\" ' + where + 'LIMIT ' +numbersOfJobsPerPage.toString() + ' OFFSET ' + ((page-1)*numbersOfJobsPerPage).toString();
+
+            const result2 = await client.query(queryString);
 
             await client.release();
-            return [result,numbersOfPages];
+            return [result2,numbersOfPages];
         } 
         catch(err)
         {
@@ -26,7 +29,7 @@ module.exports.getJob_listing =async (search,page,numbersOfJobsPerPage) => {
 
 
 
-module.exports.getFind = async (category,type,location,page,numbersOfJobsPerPage)=>{
+module.exports.getFind = async (search,category,type,location,page,numbersOfJobsPerPage)=>{
         const client = await pool.connect();
         try {
             category = getCategory(category);
@@ -59,12 +62,20 @@ module.exports.getFind = async (category,type,location,page,numbersOfJobsPerPage
                 }
                 where +=  ' "thanhpho"= ' + '\''+ location + '\'';
             }
+            if(search !== undefined)
+            {
+                where += "AND \"tencongviec\" LIKE " + '\'%' + search + '%\'';
+            }
             const result = await client.query('SELECT * FROM congviec ' +where);   
             const numbersOfJobs = result.rows.length; 
             const numbersOfPages = parseInt(numbersOfJobs/numbersOfJobsPerPage)+(numbersOfJobs%numbersOfJobsPerPage === 0 ? 0 : 1);
   
+            let queryString;
+
+            queryString= 'SELECT * FROM "congviec" ' +where +'LIMIT ' +numbersOfJobsPerPage.toString() + ' OFFSET ' + ((page-1)*numbersOfJobsPerPage).toString();
+            const result2 = await client.query(queryString);
             client.release()
-            return [result, numbersOfPages];
+            return [result2, numbersOfPages];
         }
         catch(err)
         {

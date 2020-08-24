@@ -1,20 +1,20 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Job board HTML-5 Template </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-		<!-- CSS here -->
-        <%- include ('./elements/css') %>   
-   </head>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Job board HTML-5 Template </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 
-   <body>
-    </div>
+    <!-- CSS here -->
+    <%- include ('./elements/css') %>
+</head>
+
+<body>
     <!-- Preloader Start -->
     <%- include ('./elements/preloader') %>
     <!-- Preloader Start -->
@@ -28,7 +28,8 @@
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="slider-active">
-                <div class="single-slider slider-height d-flex align-items-center" data-background="img/hero/h1_hero.jpg">
+                <div class="single-slider slider-height d-flex align-items-center"
+                    data-background="img/hero/h1_hero.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-6 col-lg-9 col-md-10">
@@ -38,29 +39,6 @@
                             </div>
                         </div>
                         <!-- Search Box -->
-                        <div class="row">
-                            <div class="col-xl-8">
-                                <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="input-form">
-                                        <input type="text" placeholder="Job Tittle or keyword">
-                                    </div>
-                                    <div class="select-form">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Location BD</option>
-                                                <option value="">Location PK</option>
-                                                <option value="">Location US</option>
-                                                <option value="">Location UK</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="search-form">
-                                        <a href="#">Find job</a>
-                                    </div>	
-                                </form>	
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -85,7 +63,7 @@
                                 <span class="flaticon-tour"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Creative</a></h5>
+                                <h5><a href="job_listing.html">Design & Creative</a></h5>
                                 <span>(653)</span>
                             </div>
                         </div>
@@ -96,7 +74,7 @@
                                 <span class="flaticon-cms"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Design & Development</a></h5>
+                                <h5><a href="job_listing.html">Design & Development</a></h5>
                                 <span>(658)</span>
                             </div>
                         </div>
@@ -107,7 +85,7 @@
                                 <span class="flaticon-report"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Sales & Marketing</a></h5>
+                                <h5><a href="job_listing.html">Sales & Marketing</a></h5>
                                 <span>(658)</span>
                             </div>
                         </div>
@@ -118,7 +96,7 @@
                                 <span class="flaticon-app"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Mobile Application</a></h5>
+                                <h5><a href="job_listing.html">Mobile Application</a></h5>
                                 <span>(658)</span>
                             </div>
                         </div>
@@ -129,7 +107,7 @@
                                 <span class="flaticon-helmet"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Construction</a></h5>
+                                <h5><a href="job_listing.html">Construction</a></h5>
                                 <span>(658)</span>
                             </div>
                         </div>
@@ -140,7 +118,7 @@
                                 <span class="flaticon-high-tech"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Information Technology</a></h5>
+                                <h5><a href="job_listing.html">Information Technology</a></h5>
                                 <span>(658)</span>
                             </div>
                         </div>
@@ -151,7 +129,7 @@
                                 <span class="flaticon-real-estate"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Real Estate</a></h5>
+                                <h5><a href="job_listing.html">Real Estate</a></h5>
                                 <span>(658)</span>
                             </div>
                         </div>
@@ -162,7 +140,7 @@
                                 <span class="flaticon-content"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html">Content Writer</a></h5>
+                                <h5><a href="job_listing.html">Content Writer</a></h5>
                                 <span>(658)</span>
                             </div>
                         </div>
@@ -204,10 +182,13 @@
                         <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="job_details/id=<%= job.idcongviec %>"><img src="img/icon/<%= job.idcongviec %>.png" alt=""></a>
+                                    <a href="job_details/id=<%= job.idcongviec %>"><img
+                                            src="img/icon/<%= job.idcongviec %>.png" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
-                                    <a href="job_details/id=<%= job.idcongviec %>"><h4><%= job.tencongviec %></h4></a>
+                                    <a href="job_details/id=<%= job.idcongviec %>">
+                                        <h4><%= job.tencongviec %></h4>
+                                    </a>
                                     <ul>
                                         <li><%= job.macongty %></li>
                                         <li><i class="fas fa-map-marker-alt"></i><%= job.diadiem %></li>
@@ -263,8 +244,9 @@
                                     </div>
                                 </div>
                                 <div class="blog-cap">
-                                    <p>|   Properties</p>
-                                    <h3><a href="single-blog.html">Footprints in Time is perfect House in Kurashiki</a></h3>
+                                    <p>| Properties</p>
+                                    <h3><a href="single-blog.html">Footprints in Time is perfect House in Kurashiki</a>
+                                    </h3>
                                     <a href="#" class="more-btn">Read more »</a>
                                 </div>
                             </div>
@@ -282,8 +264,9 @@
                                     </div>
                                 </div>
                                 <div class="blog-cap">
-                                    <p>|   Properties</p>
-                                    <h3><a href="single-blog.html">Footprints in Time is perfect House in Kurashiki</a></h3>
+                                    <p>| Properties</p>
+                                    <h3><a href="single-blog.html">Footprints in Time is perfect House in Kurashiki</a>
+                                    </h3>
                                     <a href="#" class="more-btn">Read more »</a>
                                 </div>
                             </div>
@@ -302,19 +285,22 @@
     </footer>
 
     <!-- JS here -->
-	<%- include ('./elements/js') %>
-	<div id="fb-root"></div>
-    <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
-    fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    
-    <div style="position:fixed; z-index:9999999; right:10px; bottom:10px;" class="fb-page" data-tabs="messages" data-href="https://www.facebook.com/Web-Job-107155684445137" data-width="300" data-height="400" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
-    
-    
-    </body>
-   
+    <%- include ('./elements/js') %>
+    <div id="fb-root"></div>
+    <script>(function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <div style="position:fixed; z-index:9999999; right:10px; bottom:10px;" class="fb-page" data-tabs="messages"
+        data-href="https://www.facebook.com/Web-Job-107155684445137" data-width="250" data-height="300"
+        data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"
+        data-show-posts="false"></div>
+
+</body>
+
 </html>
