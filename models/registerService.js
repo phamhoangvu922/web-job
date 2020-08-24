@@ -15,23 +15,25 @@ module.exports.getRegisterComplete = function(req,res,next){
                 {
                     announce = "Email đã tồn tại";
                 }
-                res.render('register',{announce});
+                res.render('register',{announce,username: req.user, isLogin: req.isAuthenticated()});
                 
              }
             else
             {
                 const password = req.body.password;
                 const name = req.body.name;
+                const date = req.body.date;
                 const email = req.body.email;
                 const bio = req.body.bio;
+                const phone = req.body.phone;
                 bcrypt.genSalt(10, function(err, salt) {
                     bcrypt.hash(password, salt, function(err, hash) {
-                        client.query('INSERT INTO "users" VALUES (' + '\'' + name + '\',\'' + email+ '\',\'' +hash + '\',\''+  bio + '\');', function (err, result) {
+                        client.query('INSERT INTO "users" VALUES (' + '\'' + name + '\',\'' + date+ '\',\'' + email+ '\',\'' +hash + '\',\''+  phone + '\',\''+  bio + '\');', function (err, result) {
                             done();
                             if(err){
                                 return console.log('error running query', err);
                             }
-                            res.render('register-complete');
+                            res.render('register-complete',{username: req.user, isLogin: req.isAuthenticated()});
                         });
                     });
                 }); 

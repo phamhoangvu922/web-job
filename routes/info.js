@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router()
+const controllerInfor = require('../controllers/info')
 
-router.get("/", function(req, res)  {
-    
-    res.render("info",{username: req.user, isLogin: req.isAuthenticated()});
-});
+router.get("/", controllerInfor.getInfo);
 module.exports = router;
