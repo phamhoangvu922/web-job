@@ -250,7 +250,7 @@
     function getType() {
         var value = document.getElementById('type').options[document.getElementById('type').selectedIndex].value;
         if (value === 'All') {
-            return 'All';
+            return '';
         }
         else if (value === 'Full-time') {
             return 'Full-time';
@@ -270,7 +270,7 @@
     function getCategory() {
         var value = document.getElementById('category').options[document.getElementById('category').selectedIndex].value;
         if (value === 'All') {
-            return 'All';
+            return '';
         }
         else if (value === 'Sale/Digital') {
             return 'Sale/Digital';
@@ -284,7 +284,7 @@
     function getLocation() {
         var value = document.getElementById('location').options[document.getElementById('location').selectedIndex].value;
         if (value === 'All') {
-            return 'All';
+            return '';
         }
         else if (value === 'TP.HCM') {
             return 'TP.HCM';
@@ -302,7 +302,7 @@
         const type = getType();
         const category = getCategory();
         const location = getLocation();
-        if (type === 'All' && category === 'All' && location === 'All') {
+        if (type === '' && category === '' && location === '') {
             return;
         }
         document.getElementById('find-filter').href = '/job_listing/find?page=1&category=' + category + '&type=' + type + '&location=' + location;
